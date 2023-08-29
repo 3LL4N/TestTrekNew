@@ -4,6 +4,8 @@ import { Button, View } from "react-native";
 import { useAuth } from "@clerk/clerk-expo";
 import { SafeAreaView } from "react-native-safe-area-context";
 import MainHeader from "../components/headers/MainHeader";
+import PlayQuiz from "../components/playquiz/PlayQuiz";
+import Footer from "../components/Footer";
 
 const SignOut = () => {
   const { signOut } = useAuth();
@@ -21,10 +23,11 @@ const SignOut = () => {
 
 export const HomeScreen = () => {
   return (
-    <SafeAreaView className="">
+    <SafeAreaView className="flex-1 flex-col">
       <MainHeader />
-
+      <PlayQuiz />
       <SignOut />
+      <Footer />
     </SafeAreaView>
   );
 };
