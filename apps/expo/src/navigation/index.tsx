@@ -26,6 +26,8 @@ import { SettingsScreen } from "../screens/settings";
 import { TestDetailsScreen } from "../screens/test-details";
 import { EditTestScreen } from "../screens/edit-test";
 import { ViewAllScreen } from "../screens/view-all";
+import { AddCoverImageScreen } from "../screens/add-cover-image";
+
 
 export default function Navigation() {
   return (
@@ -57,8 +59,7 @@ const RootNavigator = () => {
   });
 
   if (!fontsLoaded) {
-    // TODO: Add splash screen
-    return null;
+    return <></>;
   }
 
   return (
@@ -145,6 +146,13 @@ const RootNavigator = () => {
             <Stack.Screen
               name="ViewAll"
               component={ViewAllScreen}
+              options={{
+                headerShown: false,
+              }}
+            />
+            <Stack.Screen
+              name="AddCoverImage"
+              component={AddCoverImageScreen}
               options={{
                 headerShown: false,
               }}

@@ -240,6 +240,9 @@ export const testRouter = router({
           collections: {
             deleteMany: {},
           },
+          keywords: {
+            deleteMany: {},
+          },
         },
       });
 
@@ -455,4 +458,16 @@ export const testRouter = router({
       },
     });
   }),
+
+  delete: protectedProcedure
+    .input(z.object({ testId: z.string() }))
+    .mutation(async ({ ctx, input }) => {
+      const { testId } = input;
+
+      return ctx.prisma.test.delete({
+        where: {
+          id: testId,
+        },
+      });
+    }),
 });
